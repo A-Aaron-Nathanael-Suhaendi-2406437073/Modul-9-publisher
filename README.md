@@ -5,3 +5,9 @@ b. The url of: “amqp://guest:guest@localhost:5672” is the same as in the sub
 Kesamaan URL ini berarti program publisher dan subscriber terhubung ke server message broker (RabbitMQ) yang sama persis, yaitu yang sedang berjalan di komputer lokal kita (melalui Docker) pada port 5672.
 
 Hal ini memang wajib dilakukan dalam arsitektur event-driven. Agar subscriber bisa menerima dan memproses pesan yang dikirimkan oleh publisher, keduanya harus nongkrong dan berkomunikasi melalui jalur perantara (broker) yang sama. Jika URL nya berbeda, pesan yang dikirim publisher tidak akan pernah sampai ke subscriber.
+
+
+
+### Running RabbitMQ
+![RabbitMQ Dashboard](images/rabbitmq_running.png)
+
