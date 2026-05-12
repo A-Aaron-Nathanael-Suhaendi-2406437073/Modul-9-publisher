@@ -19,3 +19,9 @@ Hal ini memang wajib dilakukan dalam arsitektur event-driven. Agar subscriber bi
 Ketika perintah `cargo run` dieksekusi pada direktori *publisher*, program tersebut mempublikasikan 5 buah *event* berupa pesan `UserCreatedEventMessage` ke *message broker* (RabbitMQ). Karena program *subscriber* sudah dalam posisi berjalan (*standby*) dan terhubung ke *broker* yang sama, *subscriber* tersebut secara otomatis langsung menerima (*consume*) dan memproses kelima pesan yang masuk, lalu mencetak isinya secara *real-time* ke layar console.
 
 
+### Monitoring Chart Based on Publisher
+![Message Rates Chart](images/message_rates_chart.png)
+
+**Penjelasan:**
+Lonjakan (*spike*) yang terjadi pada grafik "Message rates" di dashboard RabbitMQ berbanding lurus dengan eksekusi program *publisher*. Setiap kali kita menjalankan program *publisher* (`cargo run`), program tersebut mempublikasikan 5 pesan sekaligus ke *message broker* dalam waktu yang sangat singkat. Karena RabbitMQ langsung menerima pesan (*publish*) dan meneruskannya ke *subscriber* (*deliver*) pada detik yang sama, aktivitas ini terekam sebagai lonjakan tajam pada grafik. Saat program selesai mengirim, grafik akan kembali turun ke titik nol (*idle*).
+
