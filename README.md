@@ -11,3 +11,11 @@ Hal ini memang wajib dilakukan dalam arsitektur event-driven. Agar subscriber bi
 ### Running RabbitMQ
 ![RabbitMQ Dashboard](images/rabbitmq_running.png)
 
+### Sending and Processing Event
+![Sending and Processing Event](images/sending_processing.png)
+
+
+**What happens here:**
+Ketika perintah `cargo run` dieksekusi pada direktori *publisher*, program tersebut mempublikasikan 5 buah *event* berupa pesan `UserCreatedEventMessage` ke *message broker* (RabbitMQ). Karena program *subscriber* sudah dalam posisi berjalan (*standby*) dan terhubung ke *broker* yang sama, *subscriber* tersebut secara otomatis langsung menerima (*consume*) dan memproses kelima pesan yang masuk, lalu mencetak isinya secara *real-time* ke layar console.
+
+
